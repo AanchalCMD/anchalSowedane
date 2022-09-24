@@ -1,0 +1,76 @@
+<section class="register-page">
+    <section>
+        
+        <div class="login-div">
+            <h1>Profile</h1>
+            <form action="/register/profileDetails" method="POST">
+
+                <div class="margin-div">
+                    <div class="input-div">
+                        <img class="animation-input" src="/img/auth/user.png" alt="">
+                        <input 
+                            type="text" 
+                            placeholder="Username" 
+                            name="name" 
+                            value="<%= messages.name %>">
+                    </div>
+                    <% if (messages.nameRequired) { %>
+                    <span><img src="/img/auth/warning2.png" alt="">Required</span>
+                    <% } %>
+                </div>
+
+                <div class="margin-div">
+                    <div class="input-div">
+                        <img class="animation-input" src="/img/auth/phone.png" alt="">
+                        <span>+91</span>
+                        <input
+                            class="input-phone"
+                            type="text" 
+                            name="phone" >
+                    </div>
+                    <% if (messages.phoneValidation) { %>
+                    <span> <img src="/img/auth/warning2.png" alt=""><%= messages.phoneValidation %></span>
+                    <% } %>
+                </div>
+
+
+                <div class="margin-div">
+                    <div class="input-div">
+                        <img class="animation-input" src="/img/auth/user.png" alt="">
+                        <input 
+                            type="number" 
+                            placeholder="Age" 
+                            name="age">
+                    </div>
+
+                    <% if (messages.age) { %>
+                    <span><img src="/img/auth/warning2.png" alt=""><%= messages.age %></span>
+                    <% } %>
+                </div>
+
+                <div class="margin-div">
+                    <div class="input-div">
+                        <img class="animation-input" src="/img/auth/password.png" alt="">
+                        <div class="hide-show-div">
+                            <input 
+                                type="number" 
+                                placeholder="Experience in Years" 
+                                name="experience">
+                        </div>
+                    </div>
+                    <% if (messages.experience) { %>
+                    <span><img src="/img/auth/warning2.png" alt="">Required</span>    
+                    <%  } %>
+                </div>
+
+                <div class="buttons-div">
+                    <button id="register-btn" type="submit">Continue</button>
+                </div>
+            </form>
+            <% if (messages.error) { %>
+            <span><img src="/img/auth/warning2.png" alt=""><%= messages.error %></span>    
+            <%  } %>
+        </div>
+    </section>
+</section>
+

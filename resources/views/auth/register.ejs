@@ -1,0 +1,75 @@
+<section class="register-page">
+    <section>
+        
+        <div class="login-div">
+            <h1>Register Now</h1>
+            <form action="/register" method="POST">
+
+                <div class="margin-div">
+                    <div class="input-div">
+                        <img class="animation-input" src="/img/auth/email.png" alt="">
+                        <input 
+                            type="email" 
+                            placeholder="Email" 
+                            name="email" 
+                            value="<%= messages.email %>">
+                    </div>
+
+                    <% if (messages.emailValidation) { %>
+                    <span><img src="/img/auth/warning2.png" alt=""><%= messages.emailValidation %></span>
+                    <% } %>
+                </div>
+
+                <div class="margin-div">
+                    <div class="input-div">
+                        <img class="animation-input" src="/img/auth/password.png" alt="">
+                        <div class="hide-show-div">
+                            <input 
+                                id="hide-show-input" 
+                                type="password" 
+                                placeholder="Password" 
+                                name="password1" 
+                                value="<%= messages.password %>">
+                            <button type="button" onclick="password();"><img id="hide-show-img"
+                                    src="/img/auth/show-password.png" alt=""></button>
+                        </div>
+                    </div>
+                    <% if (messages.passwordRequired) { %>
+                    <span><img src="/img/auth/warning2.png" alt="">Required</span>    
+                    <%  } %>
+                </div>
+
+                <div class="buttons-div">
+                    <button id="register-btn" type="submit">Register</button>
+                    <a style="font-weight: bolder;" href="/login">Already have account?</a>
+                </div>
+            </form>
+            <% if (messages.error) { %>
+            <span><img src="/img/auth/warning2.png" alt=""><%= messages.error %></span>    
+            <%  } %>
+        </div>
+    </section>
+</section>
+
+<script>
+    let hide_show_input = document.getElementById("hide-show-input");
+    let hide_show_img = document.getElementById("hide-show-img");
+    // let registerBtn = document.getElementById("register-btn");
+
+    // registerBtn.onclick = function(){
+    //     console.log('jeeje')
+    // }
+
+    function password() {
+
+        if (hide_show_input.type === 'password') {
+            hide_show_input.type = 'text';
+            hide_show_img.setAttribute('src', '/img/auth/hide-password.png')
+        }
+
+        else {
+            hide_show_input.type = 'password';
+            hide_show_img.setAttribute('src', '/img/auth/show-password.png')
+        }
+    }
+</script>

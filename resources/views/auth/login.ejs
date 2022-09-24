@@ -1,0 +1,59 @@
+<section class="login-page">
+    <section>
+        <% if (messages.success) { %>
+            <div role="alert" id="register-success-alert" class="alert-div"> <span id="remove-alert">&times;</span> <p><%= messages.success %></p> </div>
+        <% } %>
+        <div class="login-div">
+            <h1>Account Login</h1>
+            <form action="/login" method="POST">
+                <div class="margin-div">
+                    <div class="input-div">
+                        <img class="animation-input" src="/img/auth/email.png" alt="">
+                        <input type="email" placeholder="Email" name="email"> 
+                    </div>
+                </div>
+                <div class="margin-div">
+                    <div class="input-div">
+                        <img class="animation-input" src="/img/auth/password.png" alt="">
+                        <div class="hide-show-div">
+                            <input id="hide-show-input" type="password" placeholder="Password" name="password">
+                            <button type="button" onclick="password();"><img id="hide-show-img" src="/img/auth/show-password.png" alt=""></button>
+                        </div>
+                    </div>  
+                </div>
+
+                <div class="buttons-div">
+                    <button type="submit">Login Now</button>
+                    <a href="/register" style="font-weight: bolder;">Don't have account?</a>
+                </div>
+
+            </form>
+        </div>
+        <% if(messages.error) { %>
+        <div class="login-Validate-Div">
+            <span> <img src="/img/auth/warning2.png" alt=""><%= messages.error %></span>
+        </div>
+        <% } %>
+    </section>
+</section>
+
+<script>
+    let hide_show_input = document.getElementById("hide-show-input");
+    let hide_show_img = document.getElementById("hide-show-img");
+
+    function password(){
+
+        if(hide_show_input.value){
+
+            if(hide_show_input.type === 'password'){
+                hide_show_input.type = 'text';
+                hide_show_img.setAttribute('src', '/img/auth/hide-password.png')
+            }
+    
+            else{
+                hide_show_input.type = 'password';
+                hide_show_img.setAttribute('src', '/img/auth/show-password.png')
+            }
+        }
+    }
+</script>
